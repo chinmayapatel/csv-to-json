@@ -21,7 +21,7 @@ function convertToJson(records) {
     records.forEach(record => {
         jsonArr.push({
             id: record.ColA,
-            status: record.ColB,
+            activity: record.ColB,
             timestamp: record.ColC
         });
     });
@@ -35,17 +35,17 @@ function convertToJson(records) {
         if (!x) {
             const newCurr = {
                 id: current.id,
-                processes: [{ status: current.status, timestamp: current.timestamp }],
+                activities: [{ activity: current.activity, timestamp: current.timestamp }],
 
             }
             return acc.concat([newCurr]);
         } else {
-            const currData = x.processes.filter(d => d.status === current.status);
+            const currData = x.activities.filter(d => d.activity === current.activity);
             if (!currData.length) {
-                const newData = x.processes.push({ status: current.status, timestamp: current.timestamp });
+                const newData = x.activities.push({ activity: current.activity, timestamp: current.timestamp });
                 const newCurr = {
                     id: current.id,
-                    status: newData,
+                    activity: newData,
                     timestamp: current.timestamp
                 }
                 return acc;
