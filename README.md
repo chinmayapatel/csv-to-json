@@ -1,8 +1,8 @@
 # bishesh
 - Install Nodejs
 - Clone project
-- Run npm install
-- Run below command  
+- Run below commands
 ```console
+npm install  
 node index.js
 ```
